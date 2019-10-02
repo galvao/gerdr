@@ -1,0 +1,40 @@
+#!/usr/bin/env php
+<?php declare(strict_types = 1);
+chdir(__DIR__);
+require '../vendor/autoload.php';
+
+use League\CLImate\CLImate;
+use Gerdr\{
+    Gerdr
+};
+
+$cli = new CLImate();
+$cli->description('Gerdr v.' . Gerdr::VERSION . ' - Manipulate DOM HTML trees');
+$cli->arguments->add(require 'args.php');
+
+if ($cli->arguments->defined('version')) {
+    exit('Gerdr v.' . Gerdr::VERSION . PHP_EOL);
+}
+
+try {
+    $cli->arguments->parse();
+} catch (\Exception $e) {
+    exit($cli->usage() . PHP_EOL);
+}
+
+$dom      = $cli->arguments->get('dom');
+$config   = $cli->arguments->get('seek-config-file');
+
+try {
+    $gerdr = new Gerdr($dom, $config);
+} catch (\Exception $e) {
+    exit($e->getMessage() . PHP_EOL);
+}
+
+try {
+    $gerdr->process();
+} catch (\Exception $e) {
+    exit($e->getMessage() . PHP_EOL);
+}
+
+echo $gerdr->getModifiedDom() . PHP_EOL;

@@ -1,0 +1,27 @@
+{
+    "name": "galvao/gerdr",
+    "type": "project",
+    "description": "Manipulate DOM HTML trees",
+    "version": "0.1.0-alpha",
+    "keywords": ["DOM"],
+    "homepage": "https://github.com/galvao/gerdr",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Er Galvão Abbott",
+            "email": "galvao@php.net",
+            "homepage": "https://www.galvao.eti.br",
+            "role": "Lead Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "monolog/monolog": "1.*",
+        "league/climate": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gerdr\\": "src/"
+        }
+    }
+}
