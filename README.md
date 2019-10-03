@@ -11,6 +11,8 @@ composer require galvao/gerdr
 
 ## Usage
 
+Gerdr requires a JSON configuration file in order to operate. See [this wiki page](https://github.com/galvao/gerdr/wiki/The-Config-File) for more information.
+
 * As an application
 
 ```bash
