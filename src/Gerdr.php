@@ -65,11 +65,12 @@ class Gerdr
                 if ($definition->action === 'remove'){
                     if (!isset($definition->attributes)) {
                         $node->parentNode->removeChild($node);
-                    } else {
-                        foreach ($definition->attributes as $attr) {
-                            if ($node->hasAttribute($attr)) {
-                                $node->removeAttribute($attr);
-                            }
+                        continue;
+                    }
+
+                    foreach ($definition->attributes as $attr) {
+                        if ($node->hasAttribute($attr)) {
+                            $node->removeAttribute($attr);
                         }
                     }
                 }
