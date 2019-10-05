@@ -18,8 +18,6 @@ class Gerdr
 
     public const VERSION = '0.1.0-alpha';
 
-    public static $validActions = ['remove'];
-
     public $elementsToWatch  = [];
 
     private $dom;
@@ -53,14 +51,6 @@ class Gerdr
         $this->dom->loadHTMLFile($this->domFile);
 
         foreach ($this->elementsToWatch as $element => $definition) {
-            if (!isset($definition->action)) {
-                throw new \Exception('Undefined action for element ' . $element);
-            }
-
-            if (!in_array($definition->action, self::$validActions)) {
-                throw new \Exception('Invalid action ' . $definition->action . ' for element ' . $element);
-            }
-
             $list = $this->dom->getElementsByTagName($element);
 
             foreach ($list as $item) {

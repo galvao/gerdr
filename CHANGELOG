@@ -2,9 +2,16 @@
 
 ## [0.1.0] - 2019-xx-xx
 
+### Added
 - New argument: -s / --signed-actions makes Gerdr leave a comment before / in place of any manipulated / removed node.
+
+### Changed
+- Validation for each element needing an action and valid actions are now handled by the Config class, as expected.
+- Gerdr is now PSR-12 compliant.
 - Release date for 0.1.0-alpha was wrong due to a typo.
 
 ## [0.1.0-alpha] - 2019-10-02
+
+### Added
 
 - Remove elements and/or attributes with the "remove" action.
