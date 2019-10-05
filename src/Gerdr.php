@@ -64,6 +64,14 @@ class Gerdr
                     $parentNode->insertBefore($this->dom->createComment(' Node manipulated by Gerdr '), $node);
                 }
 
+                if ($definition->action === 'comment') {
+                    $newNode = $node->cloneNode();
+                    $newNodeSrc = $this->dom->saveHTML($newNode);
+                    $parentNode->replaceChild($this->dom->createComment($newNodeSrc), $node);
+
+                    continue;
+                }
+
                 if ($definition->action === 'remove') {
                     if (!isset($definition->attributes)) {
                         $parentNode->removeChild($node);

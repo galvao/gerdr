@@ -17,7 +17,7 @@ class Config
     use FileValidation;
 
     public static $config;
-    public static $validActions = ['remove'];
+    public static $validActions = ['comment', 'remove'];
 
     public static function validate(string $file): void
     {

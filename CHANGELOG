@@ -3,6 +3,7 @@
 ## [0.1.0] - 2019-xx-xx
 
 ### Added
+- New action: comment - comments the node, without regarding for the presence of the attributes array.
 - New argument: -s / --signed-actions makes Gerdr leave a comment before / in place of any manipulated / removed node.
 
 ### Changed

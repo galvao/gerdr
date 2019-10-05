@@ -47,7 +47,13 @@ $result = $gerdr->getModifiedDom();
 
 ## Actions
 
-As of now Gerdr only removes elements/attributes with the `remove` action.
+* comment: Comments the entire node, without regarding for the presence of the attributes array.
+* remove: If the attributes array is present remove the declared attributes. Otherwise removes the entire element.
+
+## Contribute Guidelines
+
+* Gerdr uses [Github Flow](https://guides.github.com/introduction/flow/) as a workflow;
+* Gerdr adheres to [PSR-12](https://www.php-fig.org/psr/psr-12/).
 
 ## Acknowledgements
 
