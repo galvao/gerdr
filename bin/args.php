@@ -4,26 +4,26 @@ return [
         'prefix'       => 'v',
         'longPrefix'   => 'version',
         'description'  => 'Show Gerdr\'s version',
-        'required'     => FALSE,
-        'noValue'      => TRUE,
+        'required'     => false,
+        'noValue'      => true,
     ],
     'dom' => [
         'prefix'      => 'd',
         'longPrefix'  => 'dom',
         'description' => 'The DOM to parse',
-        'required'    => TRUE,
+        'required'    => true,
     ],
     'seek-config-file' => [
         'prefix'      => 'c',
         'longPrefix'  => 'seek-config-file',
         'description' => 'Seek configuration file (see the project\'s wiki)',
-        'required'    => TRUE,
+        'required'    => true,
     ],
     'signed-actions' => [
         'prefix'      => 's',
         'longPrefix'  => 'signed-actions',
         'description' => 'Prepend the altered/removed DOM node with a comment',
-        'required'    => FALSE,
-        'noValue'     => TRUE,
+        'required'    => false,
+        'noValue'     => true,
     ]
 ];

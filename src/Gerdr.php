@@ -1,4 +1,7 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
+
 namespace Gerdr;
 
 /**
@@ -11,6 +14,8 @@ namespace Gerdr;
 
 class Gerdr
 {
+    use FileValidation;
+
     public const VERSION = '0.1.0-alpha';
 
     public static $validActions = ['remove'];
@@ -22,11 +27,9 @@ class Gerdr
     private $modifiedDom;
     private $sign;
 
-    use FileValidation;
-
-    public function __construct(string $dom, string $config, bool $signed = FALSE)
+    public function __construct(string $dom, string $config, bool $signed = false)
     {
-        if (self::isValid($dom) === FALSE) {
+        if (self::isValid($dom) === false) {
             throw new \Exception('Invalid DOM file.');
         }
 
@@ -60,18 +63,18 @@ class Gerdr
 
             $list = $this->dom->getElementsByTagName($element);
 
-            foreach($list as $item) {
+            foreach ($list as $item) {
                 $nodesToProcess[] = $item;
             }
 
             foreach ($nodesToProcess as $node) {
                 $parentNode = $node->parentNode;
 
-                if ($this->sign === TRUE) {
+                if ($this->sign === true) {
                     $parentNode->insertBefore($this->dom->createComment(' Node manipulated by Gerdr '), $node);
                 }
 
-                if ($definition->action === 'remove'){
+                if ($definition->action === 'remove') {
                     if (!isset($definition->attributes)) {
                         $parentNode->removeChild($node);
                         continue;

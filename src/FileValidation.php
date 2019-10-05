@@ -1,4 +1,7 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
+
 namespace Gerdr;
 
 /**
@@ -14,13 +17,13 @@ trait FileValidation
     private static function isValid(string $file): bool
     {
         if (!is_file($file)) {
-            return FALSE;
+            return false;
         }
 
         if (!is_readable($file)) {
-            return FALSE;
+            return false;
         }
 
-        return TRUE;
+        return true;
     }
 }

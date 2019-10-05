@@ -1,4 +1,7 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
+
 namespace Gerdr;
 
 /**
@@ -11,20 +14,20 @@ namespace Gerdr;
 
 class Config
 {
+    use FileValidation;
+
     public static $config;
 
     public static function validate(string $file): void
     {
-        if (self::isValid($file) === FALSE) {
+        if (self::isValid($file) === false) {
             throw new \Exception('Invalid config file.');
         }
 
         try {
-            self::$config = json_decode(file_get_contents($file), FALSE, 512, JSON_THROW_ON_ERROR);
+            self::$config = json_decode(file_get_contents($file), false, 512, JSON_THROW_ON_ERROR);
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage());
         }
     }
-
-    use FileValidation;
 }
