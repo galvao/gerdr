@@ -26,7 +26,7 @@ $dom      = $cli->arguments->get('dom');
 $config   = $cli->arguments->get('seek-config-file');
 
 try {
-    $gerdr = new Gerdr($dom, $config);
+    $gerdr = new Gerdr($dom, $config, $cli->arguments->defined('signed-actions'));
 } catch (\Exception $e) {
     exit($e->getMessage() . PHP_EOL);
 }

@@ -1,5 +1,10 @@
 # Changelog
 
-## [0.1.0-alpha] - 2019-19-02
+## [0.1.0] - 2019-xx-xx
+
+- New argument: -s / --signed-actions makes Gerdr leave a comment before / in place of any manipulated / removed node.
+- Release date for 0.1.0-alpha was wrong due to a typo.
+
+## [0.1.0-alpha] - 2019-10-02
 
 - Remove elements and/or attributes with the "remove" action.

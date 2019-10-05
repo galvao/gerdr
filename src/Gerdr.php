@@ -20,16 +20,17 @@ class Gerdr
     private $dom;
     private $domFile;
     private $modifiedDom;
+    private $sign;
 
     use FileValidation;
 
-    public function __construct(string $dom, string $config)
+    public function __construct(string $dom, string $config, bool $signed = FALSE)
     {
         if (self::isValid($dom) === FALSE) {
             throw new \Exception('Invalid DOM file.');
         }
 
-        $this->domFile     = $dom;
+        $this->domFile = $dom;
 
         try {
             Config::validate($config);
@@ -37,6 +38,8 @@ class Gerdr
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage());
         }
+
+        $this->sign = $signed;
     }
 
     public function process()
@@ -62,9 +65,15 @@ class Gerdr
             }
 
             foreach ($nodesToProcess as $node) {
+                $parentNode = $node->parentNode;
+
+                if ($this->sign === TRUE) {
+                    $parentNode->insertBefore($this->dom->createComment(' Node manipulated by Gerdr '), $node);
+                }
+
                 if ($definition->action === 'remove'){
                     if (!isset($definition->attributes)) {
-                        $node->parentNode->removeChild($node);
+                        $parentNode->removeChild($node);
                         continue;
                     }
 

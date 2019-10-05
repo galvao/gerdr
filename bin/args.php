@@ -19,4 +19,11 @@ return [
         'description' => 'Seek configuration file (see the project\'s wiki)',
         'required'    => TRUE,
     ],
+    'signed-actions' => [
+        'prefix'      => 's',
+        'longPrefix'  => 'signed-actions',
+        'description' => 'Prepend the altered/removed DOM node with a comment',
+        'required'    => FALSE,
+        'noValue'     => TRUE,
+    ]
 ];
